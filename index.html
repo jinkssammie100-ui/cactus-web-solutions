@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cactus Web & Software Solutions | Mombasa & Nairobi, Kenya</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #2d3436;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section with Image Overlay */
+        header.hero {
+            position: relative;
+            background: linear-gradient(rgba(26, 37, 47, 0.85), rgba(26, 37, 47, 0.95)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80') center/cover no-repeat;
+            color: white;
+            padding: 6rem 1rem;
+            text-align: center;
+            border-bottom: 5px solid #6c5ce7;
+        }
+        .hero h1 { 
+            margin: 0; 
+            font-size: 3.5rem; 
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #a29bfe, #1abc9c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p { 
+            font-size: 1.2rem; 
+            color: #dfe6e9; 
+            max-width: 600px; 
+            margin: 1.5rem auto; 
+        }
+        
+        /* Modern Buttons */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+            margin-top: 20px;
+            box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn:hover { 
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(108, 92, 231, 0.4); 
+        }
+        
+        /* Containers & Headings */
+        .container { max-width: 1100px; margin: 4rem auto; padding: 0 1.5rem; }
+        h2 { 
+            text-align: center; 
+            color: #2d3436; 
+            font-size: 2.5rem; 
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 3rem; 
+        }
+        
+        /* Upgraded Services Grid */
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2.5rem; 
+        }
+        .card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #edf2f7;
+        }
+        .card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content { padding: 2rem; }
+        .card h3 { margin-top: 0; color: #2d3436; font-family: 'Poppins', sans-serif; font-size: 1.4rem;}
+        .price { font-size: 1.8rem; font-weight: 800; color: #6c5ce7; margin: 10px 0; font-family: 'Poppins', sans-serif;}
+        .card hr { border: none; border-top: 1px solid #edf2f7; margin: 20px 0; }
+        .card p { color: #636e72; }
+        .feature-list { list-style: none; padding: 0; margin: 0;}
+        .feature-list li { margin-bottom: 10px; color: #2d3436; font-weight: 500;}
+        .feature-list li::before { content: "✓ "; color: #1abc9c; font-weight: bold;}
+        
+        /* About Section (Two Column Layout) */
+        .about-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            flex-wrap: wrap;
+        }
+        .about-text { flex: 1; min-width: 300px;}
+        .about-text h2 { text-align: left; margin-bottom: 1rem; }
+        .about-image { flex: 1; min-width: 300px; border-radius: 12px; overflow: hidden; }
+        .about-image img { width: 100%; height: auto; display: block; }
+        
+        /* Contact Form */
+        .contact-form { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 3rem; 
+            border-radius: 16px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #2d3436;}
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 15px; border: 2px solid #edf2f7; border-radius: 8px; 
+            font-family: inherit; font-size: 1rem; transition: border-color 0.3s ease; box-sizing: border-box;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none; border-color: #6c5ce7;
+        }
+        .form-group textarea { height: 120px; resize: vertical; }
+        .submit-btn { 
+            width: 100%; background: linear-gradient(135deg, #2d3436, #636e72); 
+            color: white; border: none; padding: 15px; font-size: 1.1rem; 
+            border-radius: 8px; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+        .submit-btn:hover { transform: scale(1.02); }
+        
+        /* Footer */
+        footer { background: #1a252f; color: #b2bec3; text-align: center; padding: 2rem 0; margin-top: 4rem; }
+        footer p { margin: 5px 0;}
+        
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
+            background-color: #25d366; color: #FFF; border-radius: 50px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4); z-index: 100;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>Cactus Web & Software Solutions</h1>
+        <p>Beyond the Screen: We Build Systems That Grow Your Business.</p>
+        <a href="#contact" class="btn">Get a Free Quote</a>
+    </header>
+
+    <div class="container" id="services">
+        <h2>Our Services</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Web Design">
+                <div class="card-content">
+                    <h3>The "Quick Launch"</h3>
+                    <p class="price">Starts at Ksh 18,000</p>
+                    <p>Perfect for local service businesses needing a fast, professional online presence.</p>
+                    <hr>
+                    <ul class="feature-list">
+                        <li>Single-page website</li>
+                        <li>WhatsApp direct integration</li>
+                        <li>Google Maps local setup</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Data Analytics and SEO">
+                <div class="card-content">
+                    <h3>The Business Pro Suite</h3>
+                    <p class="price">Starts at Ksh 40,000</p>
+                    <p>Designed for growing companies that want to generate leads and rank on Google.</p>
+                    <hr>
+                    <ul class="feature-list">
+                        <li>5-page business site</li>
+                        <li>Local SEO optimization</li>
+                        <li>Professional email setup</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Custom Code">
+                <div class="card-content">
+                    <h3>Custom Systems & APIs</h3>
+                    <p class="price">Custom Quote starts at Ksh 95,000</p>
+                    <p>Advanced database-driven applications tailored to your exact workflow.</p>
+                    <hr>
+                    <ul class="feature-list">
+                        <li>Custom SQL architecture</li>
+                        <li>Real-time inventory tracking</li>
+                        <li>Python automated scripting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="care-plan-section" style="
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border: 2px solid #6c5ce7;
+            border-radius: 16px;
+            padding: 40px 20px;
+            margin-top: 60px;
+            margin-bottom: 50px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: 'Inter', sans-serif;
+        ">
+            <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 10px;">
+                <span style="font-size: 28px;">🛡️</span>
+                <h3 style="margin: 0; color: #2d3436; font-size: 1.8rem; font-family: 'Poppins', sans-serif; font-weight: 800;">
+                    All Packages Require a Hosting & Care Plan
+                </h3>
+            </div>
+            
+            <p style="color: #636e72; font-size: 1.1rem; margin-bottom: 25px;">
+                Ensure your website remains fast, secure, and up-to-date.
+            </p>
+
+            <div style="background: white; border-radius: 50px; padding: 12px 25px; margin-bottom: 35px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                <p style="margin: 0; color: #2d3436; font-weight: 600; font-size: 0.95rem;">
+                    ☁️ Cloud Hosting &nbsp; | &nbsp; 🔒 SSL Security &nbsp; | &nbsp; 💾 Monthly Backups &nbsp; | &nbsp; ✏️ Minor Text/Image Updates
+                </p>
+            </div>
+
+            <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap;">
+                
+                <div style="background: white; border: 2px solid #dfe6e9; border-radius: 12px; padding: 25px; min-width: 260px; transition: transform 0.3s ease;">
+                    <h4 style="margin: 0 0 15px 0; color: #636e72; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">Pay Monthly</h4>
+                    <p style="margin: 0; font-size: 2rem; font-weight: 800; color: #2d3436; font-family: 'Poppins', sans-serif;">
+                        KES 3,500<span style="font-size: 1.1rem; font-weight: 500; color: #b2bec3;">/mo</span>
+                    </p>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #6c5ce7, #a29bfe); border-radius: 12px; padding: 25px; min-width: 280px; color: white; transform: scale(1.05); box-shadow: 0 15px 25px rgba(108, 92, 231, 0.3); border: 2px solid #a29bfe;">
+                    <div style="background: #ffeaa7; color: #d63031; font-size: 0.85rem; font-weight: 800; padding: 5px 12px; border-radius: 20px; display: inline-block; margin-bottom: 12px; letter-spacing: 0.5px;">
+                        🔥 BEST VALUE
+                    </div>
+                    <h4 style="margin: 0 0 10px 0; color: rgba(255,255,255,0.9); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">Pay Annually</h4>
+                    <p style="margin: 0; font-size: 2.2rem; font-weight: 800; font-family: 'Poppins', sans-serif;">
+                        KES 35,000<span style="font-size: 1.1rem; font-weight: 500; opacity: 0.8;">/yr</span>
+                    </p>
+                    <div style="margin-top: 15px; background: rgba(0,0,0,0.15); border-radius: 8px; padding: 8px;">
+                        <p style="margin: 0; font-size: 0.95rem; font-weight: bold; color: #ffeaa7;">
+                            🎉 Save KES 7,000!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="about-wrapper">
+            <div class="about-text">
+                <h2>Why Choose Cactus?</h2>
+                <p>Based right here in Kenya; Nairobi & Mombasa, we understand the local business landscape. We aren't just web designers; we are tech problem-solvers. From repairing mobile hardware to scripting custom software solutions, we know technology inside and out.</p>
+                <p>Because we understand the devices your customers use every day, we guarantee your new website will be lightning-fast, highly secure, and perfectly optimized for mobile screens.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tech hardware and software repair">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="contact">
+        <h2>Start Your Project</h2>
+        <form class="contact-form" action="https://formspree.io/f/xgonzdjl" method="POST">
+            <div class="form-group">
+                <label for="name">Your Name / Business Name</label>
+                <input type="text" id="name" name="name" placeholder="e.g. Mombasa Motors" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="hello@yourbusiness.com" required>
+            </div>
+            <div class="form-group">
+                <label for="message">What kind of website or software do you need?</label>
+                <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Request</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Cactus Web & Software Solutions. All rights reserved.</p>
+        <p>Mombasa & Nairobi, Kenya</p>
+    </footer>
+
+    <a href="https://wa.me/254707387549?text=Hello%20Cactus%20Web%20Solutions,%20I'm%20interested%20in%20a%20website!" class="whatsapp-float" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+</body>
+</html>
